@@ -27,7 +27,7 @@ function [ x, ex ] =  DampedNewton( ObjFun,Point,Step,Rule)
     
     if strcmp(ObjFun,'Penalty')
         f = @(x,gamma)gamma*sum((x-1)^2)+(sum(x.*x)-1/4)^2;
-        g = gPenalty(f);
+        g = gPenalty(Point);
         G = GPenalty(f);
              
     elseif strcmp(ObjFun,'Chebyquad')
